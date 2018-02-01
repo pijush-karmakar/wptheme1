@@ -30,13 +30,37 @@
 	</head>
 
 <body <?php body_class(); ?>>
+
+   	<div class="sunset-sidebar sidebar-closed">
+		
+		<div class="sunset-sidebar-container">
+		
+			<a class="js-toggleSidebar sidebar-close">
+				<span class="sunset-icon sunset-close"></span>
+			</a>
+		
+			<div class="sidebar-scroll">
+				
+				<?php get_sidebar(); ?>
+				
+			</div><!-- .sidebar-scroll -->
+		
+		</div><!-- .sunset-sidebar-container -->
+		
+	</div><!-- .sunset-sidebar -->
 	
-	<div class="container">
+	<div class="sidebar-overlay"></div>
+	
+	<div class="container-fluid">
 		
 		<div class="row">
-			<div class="col-xs-12">
+			
 				
 				<div class="header-container background-image text-center" style="background-image: url(<?php header_image(); ?>);">
+					
+				<a class="js-toggleSidebar sidebar-open">
+					<span class="sunset-icon sunset-menu"></span>
+				</a>
 					
 					<div class="header-content table">
 						<div class="table-cell">
@@ -66,6 +90,6 @@
 				</div><!-- .header-container -->
 				
 			</div><!-- .col-xs-12 -->
-		</div><!-- .row -->
+		
 		
 	</div><!-- .container -->

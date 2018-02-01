@@ -27,14 +27,13 @@ function sunset_add_admin_page(){
 
 	add_submenu_page('pijush_sunset','Sunset CSS Options','Custom CSS','manage_options','pijush_sunset_css','sunset_theme_settings_page');
 
-
-
-	// Activate Custom Settings
-	add_action('admin_init','sunset_custom_settings');
 }
 
 
 add_action('admin_menu','sunset_add_admin_page');
+
+// Activate Custom Settings
+add_action('admin_init','sunset_custom_settings');
 
 function sunset_custom_settings(){
 	// Sidebar Settings option  // 
@@ -148,10 +147,12 @@ function sunset_sidebar_options(){
 function sunset_sidebar_profile(){
 	$profile = esc_attr(get_option('profile_picture') );
 	if( empty($profile) ){
-       echo ' <input type="button" class="button button-secondary" value="Upload Profile Picture" id="upload-button"  /> <input type="hidden" id="profile_picture" name="profile_picture" value=""/> ';
+       echo '<button type="button" class="button button-secondary" value="Upload Profile Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Upload Profile Picture</button> <input type="hidden" id="profile_picture" name="profile_picture" value=""/> ';
 	}
 	else{
-		echo ' <input type="button" class="button button-secondary" value="Replace Profile Picture" id="upload-button"  /> <input type="hidden" id="profile_picture" name="profile_picture" value="'.$profile.'"/> <input type="button" class="button button-secondary" id="remove-picture" value="Remove" /> ';
+		echo ' <button type="button" class="button button-secondary" value="Replace Profile Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Replace Profile Picture </button><input type="hidden" id="profile_picture" name="profile_picture" value="'.$profile.'"/> 
+        <button type="button" class="button button-secondary" id="remove-picture" value="Remove">
+        <span class="sunset-icon-button dashicons-before dashicons-no"></span> Remove </button> ';
 	}
     
 }

@@ -20,13 +20,13 @@
 	
 	<div class="entry-content">
 		
-		<?php if( has_post_thumbnail() ): 
+		<?php if( sunset_get_attachment() ): 
 
             $featured_image = wp_get_attachment_url( get_post_thumbnail_id( get_the_id() ) );
 		?>
 			<a class="standard-featured-link" href="<?php the_permalink(); ?>">
 
-			<div class="standard-featured background-image" style="background-image: url(<?php echo $featured_image; ?>);"></div>
+			<div class="standard-featured background-image" style="background-image: url(<?php echo sunset_get_attachment(); ?>);"></div>
 			</a>
 			
 		<?php endif; ?>

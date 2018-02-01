@@ -9,7 +9,7 @@ jQuery(document).ready(function($){
        	  return;
        }
 
-      mediaUploader = wp.media({
+      mediaUploader = wp.media.frames.file_frame = wp.media({
           title : 'Choose a profile picture',
           button:{
           	 text: 'Choose Picture'
