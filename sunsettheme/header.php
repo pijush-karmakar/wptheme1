@@ -33,7 +33,7 @@
 
    	<div class="sunset-sidebar sidebar-closed">
 		
-		<div class="sunset-sidebar-container">
+		<div class="sunset-sidebar-container"> 
 		
 			<a class="js-toggleSidebar sidebar-close">
 				<span class="sunset-icon sunset-close"></span>
@@ -49,7 +49,7 @@
 		
 	</div><!-- .sunset-sidebar -->
 	
-	<div class="sidebar-overlay"></div>
+	<div class="sidebar-overlay js-toggleSidebar"></div>
 	
 	<div class="container-fluid">
 		
@@ -64,15 +64,15 @@
 					
 					<div class="header-content table">
 						<div class="table-cell">
-							<h1 class="site-title sunset-icon">
-								<span class="sunset-logo"></span>
-								<span class="hide"><?php bloginfo( 'name' ); ?></span>
+							<h1 class="site-title">
+                            <!--	 <span class="sunset-logo"></span>-->
+								<span class=""><?php bloginfo( 'name' ); ?></span>
 							</h1>
 							<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 						</div><!-- .table-cell -->
 					</div><!-- .header-content -->
 					
-					<div class="nav-container">
+					<div class="nav-container hidden-xs">
 						<nav class="navbar sunset-navbar">
 
 							<?php wp_nav_menu(array( 

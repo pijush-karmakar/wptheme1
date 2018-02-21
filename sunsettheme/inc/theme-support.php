@@ -100,7 +100,7 @@ function sunset_posted_meta(){
 	return '<span class="posted-on">Posted <a href="'. esc_url( get_permalink() ) .'">' . $posted_on . '</a> ago</span> / <span class="posted-in">' . $output . '</span>';
 }
 
-function sunset_posted_footer(){
+function sunset_posted_footer( $onlyComments = false ){
 	$comments_num = get_comments_number();
 	if( comments_open() ){
 		if( $comments_num == 0 ){
@@ -110,13 +110,20 @@ function sunset_posted_footer(){
 		} else {
 			$comments = __('1 Comment');
 		}
-		$comments = '<a class="comments-link" href="'.get_comments_link().'">'.$comments .'<span class="sunset-icon sunset-comment"></span></a>';
+		$comments = '<a class="comments-link small text-caps" href="'.get_comments_link().'">'. $comments . ' '. '<span class="sunset-icon sunset-comment"> </span></a>';
 	} else {
 		$comments = __('Comments are closed');
+	}
+    
+    if ($onlyComments) {
+		return $comments;
 	}
 	
 	return '<div class="post-footer-container"><div class="row"><div class="col-xs-12 col-sm-6">'. get_the_tag_list('<div class="tags-list"><span class="sunset-icon sunset-tag"></span>', ' ', '</div>') .'</div><div class="col-xs-12 col-sm-6 text-right">'. $comments .'</div></div></div>';
 }
+
+
+
 
 /*
 	=================================
@@ -298,9 +305,25 @@ function sunset_get_post_navigation(){
 	
 }
 
+function mailtrap($phpmailer) {
+  $phpmailer->isSMTP();
+  $phpmailer->Host = 'smtp.mailtrap.io';
+  $phpmailer->SMTPAuth = true;
+  $phpmailer->Port = 2525;
+  $phpmailer->Username = 'f6b3a188eec1cd';
+  $phpmailer->Password = 'c06fdb43fa82c4';
+}
+
+add_action('phpmailer_init', 'mailtrap');
 
 
+// Initialize global Mobile Detect
+function mobileDetectGlobal() {
+    global $detect;
+    $detect = new Mobile_Detect;
+}
 
+add_action('after_setup_theme', 'mobileDetectGlobal');
 
 
 

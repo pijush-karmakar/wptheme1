@@ -21,11 +21,12 @@ h1, h2, h3, h4, h5, .form-table th, .form-wrap label {
   float: left; }
 
 .sunset-sidebar-preview {
-  width: 280px;
+  width: 275px;
   background-color: #1F1F1F;
-  padding: 20px;
+  padding: 10px 10px 30px 10px;
   text-align: center;
-  margin-right: 20px; }
+  margin-right: 20px;
+  margin-top: 15px; }
 
 .sunset-sidebar {
   display: block;

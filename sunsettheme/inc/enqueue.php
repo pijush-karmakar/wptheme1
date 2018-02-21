@@ -25,7 +25,8 @@ function sunset_load_admin_scripts($hook){
     $pages_array = array(
 		'toplevel_page_pijush_sunset',
 		'sunset_page_pijush_sunset_theme',
-		'sunset_page_pijush_sunset_contact_form'
+		'sunset_page_pijush_sunset_contact_form',
+        'sunset_page_pijush_sunset_css'
 	);
     
  if(in_array( $hook, $pages_array ) ){
@@ -35,7 +36,7 @@ function sunset_load_admin_scripts($hook){
      
  }
 
-    elseif('toplevel_page_pijush_sunset' == $hook){
+if('toplevel_page_pijush_sunset' == $hook){
         
     wp_enqueue_media();
 	wp_enqueue_script('sunset-admin-script');
@@ -43,10 +44,7 @@ function sunset_load_admin_scripts($hook){
   }
 
 
-  elseif ('sunset_page_pijush_sunset_css' == $hook) {
-
-    wp_enqueue_style( 'raleway-admin' );
-    wp_enqueue_style( 'sunset-admin' );
+if ('sunset_page_pijush_sunset_css' == $hook) {
       
     wp_enqueue_style('ace',get_template_directory_uri().'/css/sunset.ace.css',array(),'1.0.0','all' );  	
 	wp_enqueue_script('ace',get_template_directory_uri().'/js/ace/ace.js',array('jquery'),'1.2.1',true );
@@ -54,11 +52,7 @@ function sunset_load_admin_scripts($hook){
 
           }      
 
-    else
-    {
-        return;
-    
-    }
+  
 
 }
 

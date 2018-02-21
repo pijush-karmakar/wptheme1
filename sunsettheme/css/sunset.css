@@ -301,6 +301,9 @@ a {
     height: 100%;
     vertical-align: middle; }
 
+.text-caps {
+  text-transform: uppercase; }
+
 /* 
 	Header 
 	------------------------------------------------
@@ -308,17 +311,48 @@ a {
 .header-container {
   position: relative;
   display: block;
-  height: 326px; }
+  height: 335px; }
+  @media (max-width: 767px) {
+    .header-container {
+      height: 200px; } }
 
 .site-title {
   color: #fff;
   margin: 0;
-  font-size: 80px; }
+  font-size: 45px; }
+  @media (max-width: 767px) {
+    .site-title {
+      font-size: 25px; } }
 
 .site-description {
-  font-size: 14px;
+  font-size: 15px;
   color: #fff;
   margin-top: 1em; }
+  @media (max-width: 767px) {
+    .site-description {
+      font-size: 13px; } }
+
+/*
+Small Device
+-----------------------------
+*/
+.visible-xs.xs-menu {
+  padding: 0px 30px; }
+
+.visible-xs.xs-menu ul li a:after, .visible-xs.xs-menu ul li a:hover, .visible-xs.xs-menu ul li a:focus {
+  background: none; }
+
+ul.dropdown-menu li a {
+  opacity: 0.6;
+  -webkit-transition: opacity 320ms ease;
+  -moz-transition: opacity 320ms ease;
+  -ms-transition: opacity 320ms ease;
+  -o-transition: opacity 320ms ease;
+  transition: opacity 320ms ease; }
+  ul.dropdown-menu li a:hover, ul.dropdown-menu li a:focus, ul.dropdown-menu li a:visited {
+    background: rgba(0, 0, 0, 0.9) !important;
+    color: #fff;
+    opacity: 1; }
 
 /* 
   Nav Bar 
@@ -337,7 +371,8 @@ a {
   min-height: auto;
   margin-bottom: 0;
   background: rgba(255, 255, 255, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.1); }
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 15px; }
   .sunset-navbar ul {
     float: none; }
   .sunset-navbar li {
@@ -434,10 +469,17 @@ a {
 article {
   padding-top: 30px;
   padding-bottom: 30px; }
+  @media (max-width: 767px) {
+    article {
+      padding-top: 20px;
+      padding-bottom: 20px; } }
 
 h1 {
   font-size: 48px;
   font-weight: 200; }
+  @media (max-width: 767px) {
+    h1 {
+      font-size: 26px; } }
   h1 a {
     color: #000000; }
   h1.entry-title {
@@ -489,6 +531,9 @@ h1 {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.15);
     box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.35); }
+  @media (max-width: 767px) {
+    .standard-featured {
+      height: 220px; } }
 
 .entry-excerpt {
   margin: 30px 0 16px; }
@@ -545,6 +590,9 @@ h1 {
 .sunset-format-image .entry-header {
   height: 580px;
   position: relative; }
+  @media (max-width: 767px) {
+    .sunset-format-image .entry-header {
+      height: 220px; } }
 .sunset-format-image h1, .sunset-format-image .entry-meta, .sunset-format-image .entry-header {
   color: #fff; }
   .sunset-format-image h1 a, .sunset-format-image .entry-meta a, .sunset-format-image .entry-header a {
@@ -601,6 +649,9 @@ Gallery Post Format
   height: 500px; }
   .sunset-format-gallery .standard-featured:after {
     background-color: transparent; }
+  @media (max-width: 767px) {
+    .sunset-format-gallery .standard-featured {
+      height: 220px; } }
 .sunset-format-gallery .carousel-control {
   background: none;
   background-image: none;
@@ -690,6 +741,9 @@ Quote Post Format
     content: '“'; }
   .sunset-format-quote .quote-content:after {
     content: '„'; }
+  @media (max-width: 767px) {
+    .sunset-format-quote .quote-content {
+      font-size: 20px; } }
 .sunset-format-quote .quote-author {
   color: #898989;
   font-size: 12px;
@@ -721,6 +775,14 @@ Quote Post Format
 	Aside Post Format 
 	------------------------------------------------
 */
+@media (max-width: 767px) {
+  .sunset-format-aside .entry-header {
+    padding-top: 30px;
+    text-align: center; } }
+@media (max-width: 767px) {
+  .sunset-format-aside .entry-content {
+    padding: 0px 10px;
+    margin-top: 30px; } }
 .sunset-format-aside .aside-container {
   background-color: rgba(0, 0, 0, 0.05);
   padding-top: 20px; }
@@ -959,7 +1021,8 @@ a.comment-reply-link {
   background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
   z-index: 3;
-  display: none; }
+  display: none;
+  cursor: e-resize; }
 
 .sunset-sidebar {
   position: fixed;
@@ -1088,5 +1151,125 @@ h2.sunset-widget-title {
     margin-bottom: 2px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     text-transform: none; }
+
+.sunset-contact-form {
+  padding: 40px 0;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto; }
+  .sunset-contact-form .form-group {
+    margin-bottom: 30px;
+    position: relative; }
+    .sunset-contact-form .form-group:before {
+      position: absolute;
+      display: block;
+      content: '';
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #CBCBCB; }
+    .sunset-contact-form .form-group .form-control-msg {
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 10px; }
+    .sunset-contact-form .form-group.has-error:before {
+      background-color: #a94442; }
+
+.sunset-form-control {
+  resize: vertical;
+  border: none;
+  border-radius: 0;
+  padding: 8px 15px;
+  outline: none;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important; }
+  .sunset-form-control::-webkit-input-placeholder {
+    text-transform: uppercase; }
+  .sunset-form-control::-moz-placeholder {
+    text-transform: uppercase; }
+  .sunset-form-control:-ms-placeholder {
+    text-transform: uppercase; }
+  .sunset-form-control:-moz-placeholder {
+    text-transform: uppercase; }
+  .sunset-form-control:hover, .sunset-form-control:focus, .sunset-form-control:active {
+    box-shadow: none; }
+
+.btn-sunset-form {
+  -webkit-transition: all 320ms ease;
+  -moz-transition: all 320ms ease;
+  -ms-transition: all 320ms ease;
+  -o-transition: all 320ms ease;
+  transition: all 320ms ease;
+  background-color: #656565;
+  border-radius: 2px;
+  font-size: 26px;
+  padding: 14px 60px;
+  color: #fff;
+  font-weight: 100;
+  border: none; }
+  .btn-sunset-form:hover, .btn-sunset-form:focus {
+    background-color: #333333;
+    color: #fff; }
+
+.form-control-msg {
+  display: none; }
+
+.has-error .form-control-msg {
+  display: block; }
+
+.js-show-feedback {
+  display: block; }
+
+/* 
+	Search widget 
+	------------------------------------------------
+*/
+input.search-submit {
+  background: #444;
+  border: none;
+  padding: 8px;
+  position: absolute;
+  right: 0;
+  border-radius: 0px 4px 4px 0px; }
+
+input.search-field {
+  background: #444;
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: 8px 5px;
+  border-radius: 4px 0px 0px 4px; }
+
+form.search-form {
+  position: relative; }
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  background-color: #444;
+  background-image: none;
+  color: #fff; }
+
+/* 
+
+Content none page
+---------------------------------------
+
+*/
+section.no-results {
+  margin-bottom: 75px; }
+
+/* 
+
+sunset Footer
+---------------------------------------
+
+*/
+.sunset-footer {
+  color: #fff;
+  letter-spacing: 0.08em; }
+  .sunset-footer a {
+    color: #ff9d1d; }
+    .sunset-footer a:hover {
+      color: #F56B08; }
 
 /*# sourceMappingURL=sunset.css.map */

@@ -28,17 +28,59 @@ a{ color:$primaryColor ; @include animate(color,320ms);
 .table { display: table; width: 100%; height: 100%;
     .table-cell { display: table-cell; width: 100%; height: 100%; vertical-align: middle; }
 }
-
+.text-caps {
+	text-transform: uppercase;
+}
 
 /* 
 	Header 
 	------------------------------------------------
 */
-.header-container { @extend %text-shadow;  position: relative; display: block; height: 326px;
+.header-container { @extend %text-shadow;  position: relative; display: block; height: 335px;
+    @media (max-width: $xs) {
+		height: 200px;
+	}
   }
 
-.site-title { color: #fff; margin: 0; font-size: 80px; }
-.site-description { font-size: 14px; color: #fff; margin-top: 1em; }
+.site-title { color: #fff; margin: 0; font-size:45px; 
+    @media (max-width: $xs) {
+		font-size:25px;
+	}
+}
+.site-description { font-size: 15px; color: #fff; margin-top: 1em;
+   @media (max-width: $xs) {
+		font-size:13px;
+	}
+}
+
+/*
+Small Device
+-----------------------------
+*/
+.visible-xs.xs-menu {
+	padding: 0px 30px;
+}
+.visible-xs.xs-menu ul li a{
+    &:after,
+    &:hover,
+    &:focus{
+        background: none;
+    }
+}
+
+ul.dropdown-menu {       
+  li {       
+    a {   
+opacity: 0.6;
+@include animate( opacity, 320ms );
+      &:hover,
+      &:focus,
+      &:visited { background: rgba(0,0,0,0.9)!important; color: #fff;opacity: 1;   }
+    }
+  }
+}
+
+
 
 /* 
   Nav Bar 
@@ -53,6 +95,7 @@ a{ color:$primaryColor ; @include animate(color,320ms);
 .sunset-navbar{
   text-align: center; border: none; border-radius: 0; min-height: auto; margin-bottom: 0; 
   background: rgba( 255,255,255,0.1); border-top: 1px solid rgba( 255,255,255,0.1);
+    padding: 0 15px;
   ul { float: none; }
   li { float: none; display: inline-block;
     &.active {
@@ -62,6 +105,7 @@ a{ color:$primaryColor ; @include animate(color,320ms);
     }
     &.open {
       a { opacity: 1; background-color: rgba(0,0,0,0.1)!important;
+          
         &:after { @include transform( translateY(10px) ); opacity: 0!important; }
         &:hover,
         &:focus,
@@ -80,8 +124,10 @@ a{ color:$primaryColor ; @include animate(color,320ms);
       &:after { content: ''; position: absolute; display: block; left: 15px; right: 15px; bottom: 14px; height: 2px; background: #fff; @include animate( all, 320ms ); opacity: 0; @include transform( translateY(10px) ); }
     }
     ul.dropdown-menu { border: 0; border-radius: 0; background: rgba(0,0,0,0.85); margin:0;padding:0;
+        
       li { display: block; 
         a { padding:10px;
+            
           &:hover,
           &:focus,
           &:visited { background: rgba(0,0,0,0.9)!important; color: #fff;   }
@@ -98,9 +144,16 @@ a{ color:$primaryColor ; @include animate(color,320ms);
 */
 
 article { padding-top: 30px; padding-bottom: 30px; 
+    	@media (max-width: $xs) {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
 }
 
 h1{
+    @media (max-width: $xs) {
+		font-size: 26px;
+	}
   font-size: 48px; font-weight: 200;
   a { color: $primaryColor; }
   &.entry-title { line-height: 1.5em; margin: 40px 0 0; padding: 0; 
@@ -137,6 +190,9 @@ h1{
    bottom: 0; background-color: rgba(0,0,0,0.15); box-shadow: inset 0 0 15px rgba(0,0,0,0.35);
 
     }
+    @media (max-width: $xs) {
+		height: 220px;
+	}
  }
 
  .entry-excerpt { margin: 30px 0 16px;
@@ -172,11 +228,17 @@ h1{
 */
 
 .sunset-format-image{ 
-  .entry-header{ height:580px; @extend %text-shadow; position: relative;}
+  .entry-header{ height:580px; @extend %text-shadow; position: relative;
+    @media (max-width: $xs) {
+			height: 220px;
+		}
+    }
   h1,.entry-meta,.entry-header{ color: #fff;
      a{ color: #fff; }
    }
    h1{ padding-top: 15px; }
+    
+    
 }
 
 .entry-excerpt {
@@ -229,6 +291,9 @@ Gallery Post Format
 	}
 	.standard-featured { height: 500px; 
 		&:after { background-color: transparent; }
+        @media (max-width: $xs) {
+			height: 220px;
+		}
 	}
     
     .carousel-control { background: none; background-image: none; opacity: 1; filter: alpha(opacity=100); font-size: 30px; width: auto; @extend %text-shadow; 
@@ -279,6 +344,10 @@ Quote Post Format
 		&:after { content: ''; display: inline-block; position: relative; }
 		&:before { content: '“'; }
 		&:after { content: '„'; }
+        
+        @media (max-width: $xs) {
+			font-size: 20px;
+		}
 	}
 	.quote-author { color: #898989; font-size: 12px; letter-spacing: 0.06em; margin-top: 10px; margin-block-end: 30px; }
 }
@@ -320,7 +389,23 @@ Quote Post Format
 */
 
 .sunset-format-aside {
-	
+    
+    .entry-header{
+        @media (max-width: $xs){
+            padding-top:30px; 
+            text-align: center;
+        }  
+    }
+    
+    .entry-content{
+        @media (max-width: $xs){
+            padding:0px 10px;
+            margin-top: 30px;
+        }
+
+  }
+        
+    
 	.aside-container {
 		background-color: rgba(0,0,0,0.05);
 		padding-top: 20px;
@@ -641,6 +726,7 @@ a.comment-reply-link {
 	position: fixed;
 	z-index: 3;
 	display: none;
+    cursor: e-resize;
 }
 
 .sunset-sidebar {
@@ -820,12 +906,167 @@ h2.sunset-widget-title {
 	
 }
 
+//---------------- Contact form 
+
+.sunset-contact-form {
+	padding: 40px 0;
+	max-width: 500px;
+	width: 100%;
+	margin: 0 auto;
+
+	.form-group {
+		margin-bottom: 30px;
+		position: relative;
+
+		&:before {
+			position: absolute;
+			display: block;
+			content: '';
+
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 2px;
+			background-color: $grey2;
+		}
+
+		.form-control-msg {
+			text-transform: uppercase;
+			font-weight: 500;
+			font-size: 10px;
+		}
+
+		&.has-error {
+			&:before {
+				background-color: #a94442;
+			}
+		}
+	}
+}
+
+.sunset-form-control {
+	resize: vertical;
+	border: none;
+	border-radius: 0;
+	padding: 8px 15px;
+	outline: none;
+	box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+
+	&::-webkit-input-placeholder {
+		text-transform: uppercase;
+	}
+
+	&::-moz-placeholder {
+		text-transform: uppercase;
+	}
+
+	&:-ms-placeholder {
+		text-transform: uppercase;
+	}
+
+	&:-moz-placeholder {
+		text-transform: uppercase;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		box-shadow: none;
+	}
+}
+
+.btn-sunset-form {
+	@include animate(all, 320ms);
+
+	background-color: $grey;
+	border-radius: 2px;
+	font-size: 26px;
+	padding: 14px 60px;
+	color: #fff;
+	font-weight: 100;
+	border: none;
+
+	&:hover,
+	&:focus {
+		background-color: $darkgray;
+		color: #fff;
+	}
+}
+
+.form-control-msg {
+	display: none;
+}
+
+.has-error {
+	.form-control-msg {
+		display: block;
+	}
+}
+
+.js-show-feedback {
+	display: block;
+}
+
+/* 
+	Search widget 
+	------------------------------------------------
+*/
+
+input.search-submit {
+    background: #444;
+    border: none;
+    padding: 8px;
+    position: absolute;
+    right: 0;
+    border-radius: 0px 4px 4px 0px;
+}
+
+input.search-field {
+    background: #444;
+    color: #fff;
+    outline: none;
+    border: none;
+    padding: 8px 5px;
+    border-radius: 4px 0px 0px 4px;
+}
+form.search-form {
+    position: relative;
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: #444;
+    background-image: none;
+    color: #fff;
+}
+
+/* 
+
+Content none page
+---------------------------------------
+
+*/
+section.no-results{
+    margin-bottom: 75px;
+}
 
 
+/* 
 
+sunset Footer
+---------------------------------------
 
-
-
+*/
+.sunset-footer{
+    color: #fff;
+    letter-spacing: 0.08em;
+    a{
+        color: $orange ;
+        &:hover{
+            color: $orange-hover;
+        }
+    }
+}
 
 
 
